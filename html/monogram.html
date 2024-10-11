@@ -6,9 +6,12 @@
     <title>Bio-Div</title>
     <link rel="stylesheet" href="../css/monogram.css">
     <link rel="icon" href="../image/bxl-magento.svg">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="countdown"><h1>5</h1></div>
+    <div class="container" style="display:none;">
      <main>
         <header>
             <div class="logo">
@@ -17,7 +20,7 @@
             </div>
             <div class="nav">
                 <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="monogram.html">Home</a></li>
                 <li><a href="#" id="workflow-link">seasons</a>
                  <div class="submenu-div">
                  <ul class="submenu">
@@ -53,14 +56,15 @@
                 <div class="nature-type-container">
                     <div class="nature-type">
                         <div class="img-box">
-                            <img src="../image/acer-monspessulanum.jpg" alt="">
+                           <img src="../image/acer-monspessulanum.jpg" alt="">
                         </div>
                         <div class="txt-box">
                             <div class="description">
                             <h3>Acer monspessulanum (Montpelier maple)</h3>
                             <p>A small to medium-sized deciduous tree, native to southern Europe and North Africa. It has smooth, dark bark and small,
                             three-lobed leaves that turn bright yellow in autumn. It thrives in dry, rocky soils and is drought-resistant, often
-                            found in Mediterranean woodlands.</p>
+                            found in Mediterranean woodlands.
+                        <span><a href="Montpellier-maple.html" style="font-weight: bold; text-decoration: none; color: #2B3117;">read more...</a></span></p>
                             </div>
                             <div class="span">
                             <span><a href="" class="decrease">not much(-)</a></span>
@@ -205,14 +209,15 @@
                     </div>
                     <div class="nature-type">
                         <div class="img-box">
-                            <img src="../image/siting by the lake.jpg" alt="">
+                            <img src="../image/cidrus libani.jpg" alt="">
                         </div>
                         <div class="txt-box">
                             <div class="description">
-                                <h3>how much do you like the forest</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi asperiores similique maiores nemo, quae
-                                    consequatur aperiam voluptates dolor saepe hic ex cumque? Aperiam assumenda maxime quas eveniet voluptas
-                                    iusto distinctio.</p>
+                                <h3>cedrus libani</h3>
+                                <p>commonly known as the Cedar of Lebanon, is a large, evergreen conifer that can grow up to 40 meters tall. It has a
+                                conical shape in its youth, which later spreads out horizontally as it matures. Its bark is blackish-brown and fissured,
+                                while the needle-like leaves are arranged in clusters along the branches. The tree produces upright cones that turn
+                                brown when ripe</p>
                             </div>
                             <br>
                             <div class="span">
@@ -222,13 +227,67 @@
                             <div class="love-bar"></div>
                         </div>
                     </div>
-                 
-                
-                    
                 </div>
             </section>
        </main>
     </div>
-    <script src="../js/monogram.js"></script>
+    <script src="../js/monogram.js">
+    </script>
+    <script>
+       $(document).ready(function () {
+            // Set the countdown time in seconds
+            let countdownTime = 5;
+            let page = $('.container');
+            let bod = $('#countdown');
+
+            // Initial styling for countdown element
+            bod.css({
+                'display': 'flex',
+                'width': '100%',
+                'height': '100vh',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'background-color': '#484E25',
+                'font-size': '30px',
+                'color': '#BEC9BD'
+            });
+
+            bod.text(countdownTime); // Display initial countdown value
+
+            // Start the countdown
+            let countdownInterval = setInterval(function () {
+                countdownTime--;
+
+                // Update the countdown display
+                bod.text(countdownTime);
+
+                // When countdown reaches zero
+                if (countdownTime <= 0) {
+                    clearInterval(countdownInterval);
+
+                    // Fade out countdown and fade in page content
+                    bod.fadeOut(1000, function () {
+                        page.css({
+                            'display': 'flex',
+                            'opacity': '0.4', // Start with 0 opacity
+                            'transition': 'opacity 1s ease',                            
+                            
+                            // Smooth transition for opacity
+                        });
+
+                        setTimeout(function () {
+                            page.css('opacity', '1'); // Fade the page content in
+                        }, 100); // Small delay to ensure transition is applied
+                    });
+                }
+            }, 1000); // Interval of 1 second
+        });
+
+
+
+
+
+
+    </script>
 </body>
 </html>

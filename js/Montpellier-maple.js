@@ -21,12 +21,12 @@ Array.from(currencyLinks).forEach(link => {
 let proposedImages = document.querySelectorAll('.prop-img');
 let mainImageDiv = document.querySelector('.main-img');
 
-    proposedImages.forEach((img) => {
-        img.addEventListener('mouseover', function() {
-            mainImageDiv.style.backgroundImage = `url(${img.src})`;
-        });
-  });
-
+proposedImages.forEach((img) => {
+    img.addEventListener('mouseover', function() {
+        let bgImage = window.getComputedStyle(img).backgroundImage;
+        mainImageDiv.style.backgroundImage = bgImage;
+    });
+});
   /* let plus = document.querySelectorAll('.plus-icon');
   let colapssed = document.querySelector('.collapsed-info')
   let collapssingInfo = document.querySelector('.collapsing-info')
@@ -43,7 +43,7 @@ let mainImageDiv = document.querySelector('.main-img');
 let plusIcons = document.querySelectorAll('.plus-icon');
 let collapsingInfos = document.querySelectorAll('.collapsing-info');
 let uncolapssedInfo = document.querySelectorAll('.uncolapssed-info');
-let infoBox = document.querySelector('.main-info');
+let section1Adaption = document.querySelector('.section1');
 
 plusIcons.forEach((icon, index) => {
   icon.addEventListener('click', function() {
@@ -58,11 +58,13 @@ plusIcons.forEach((icon, index) => {
     if (collapssedInfo.classList.contains('show')) {
       collapsingInfoContainer.classList.add('expanded');
       uncolapsedInfoContainer.classList.add('expanded');
-      infoBox.classList.add('expanded');
+      section1Adaption.classList.add('expanded');
+      document.querySelector('.container main .section1').scrollIntoView({ behavior: 'smooth' })
+      console.log("section1 is on auto")
     } else {
       collapsingInfoContainer.classList.remove('expanded');
       uncolapsedInfoContainer.classList.remove('expanded');
-      infoBox.classList.remove('expanded');
+      section1Adaption.classList.remove('expanded');
     }
   });
 });

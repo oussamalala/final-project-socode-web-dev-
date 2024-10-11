@@ -17,10 +17,11 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    
 }
 
 .container main header {
-    width: 95%;
+    width: 97%;
     height: 60px;
     display: flex;
     margin: 10px 20px;
@@ -108,19 +109,32 @@
     margin-top: 90px;
     padding: 5px;
     justify-content: space-between;
-    border: 1px solid black;
+    transition: height 0.3s ease;
+}
+
+.container main .section1.expanded {
+    height : auto;
+    min-height: 550px;
+    width: 95%;
+    margin: 10px 20px;
+    margin-top: 90px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container main .section1 .imgs-box{
-    height: 100%;
+    height: auto;
     width: 49%;
     display: flex;
     flex-direction: column;
+    flex-grow: inherit;
+    
 }
 
 .container main .section1 .imgs-box .main-img{
     height: 69%;
-    width: 99%;
+    width: 100%;
     display: flex;
     margin: auto;
     background-image: url(../image/acer-monspessulanum.jpg);
@@ -133,14 +147,42 @@
     height: 29%;
     width: 99%;
     margin: auto;
+    padding: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    object-fit: cover;
+   
 }
 
-.container main .section1 .img-box .proposed-img img{
+.container main .section1 .imgs-box .proposed-img #img1{
     height: 99%;
     width: 33%;
+    padding: auto;
+    background-image: url(../image/montpelier-maple-seeds.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container main .section1 .imgs-box .proposed-img #img2 {
+    height: 99%;
+    width: 33%;
+    padding: auto;
+    background-image: url(../image/montpemier-maple-leafs.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container main .section1 .imgs-box .proposed-img #img3 {
+    height: 99%;
+    width: 33%;
+    padding: auto;
+    background-image: url(../image/montpelier-maple-tree.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .container main .section1 .info-box{
@@ -148,8 +190,9 @@
     width: 49%;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: space-between;
-    border: 1px solid black;
+    margin: 5px;
 }
 
 .container main .section1 .info-box .general-info
@@ -157,17 +200,60 @@
     height: 29%;
     width: 99%;
     display: flex;
-    border: 1px solid black;
-    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+  
 }
+
+.container main .section1 .info-box .general-info .big-box{
+   display: flex;
+   flex-wrap: wrap;
+   height: 90%;
+   width: 100%;
+   margin-bottom: 20px;
+  
+}
+.container main .section1 .info-box .general-info .big-box .small-box{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50%;
+    width: 30%;
+    margin: 5px;
+    padding:2px;
+ 
+  
+}
+
+.container main .section1 .info-box .general-info .big-box .small-box img {
+    height: 35px;
+    width: 35px;
+    margin-right: 7px;
+    margin-top: 7px;
+}
+
+.container main .section1 .info-box .general-info .big-box .small-box span{
+    height: 100%;
+    width: 60%;
+    margin-top: 5px;
+   
+}
+
+.container main .section1 .info-box .general-info .big-box .small-box span:hover{
+    color: #488E25;
+}
+
+.container main .section1 .info-box .general-info .big-box .small-box span p:hover {
+    color: #7f4f24;
+}
+
 
 .container main .section1 .info-box .main-info{
     height: 69%;
     width: 99%;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    border: 1px solid black;
+    margin: auto; 
 }
 
 .container main .section1 .info-box .main-info .collapsing-info{
@@ -176,7 +262,7 @@
     display: flex;
     flex-direction: column;
     margin: 5px 10px;
-    border: 1px solid black;
+    border-bottom: 1px solid #7f4f24;
     overflow: hidden;
     transition: height 0.3s ease;
 }
@@ -187,6 +273,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: height 0.3s ease;
 }
 
 .container main .section1 .info-box .main-info .collapsing-info .uncolapssed-info .plus-icon {
@@ -204,12 +291,15 @@
 
 .container main .section1 .info-box .main-info .collapsing-info .collapsed-info{
     display: none;
+    flex-direction: column;
     padding: 5px;
+    transition: height 0.3s ease;
 }
 
 .container main .section1 .info-box .main-info .collapsing-info.expanded {
     display: flex;
     height: auto;
+    transition: height 0.9s ease;
 }
 
 .container main .section1 .info-box .main-info .collapsing-info .uncolapssed-info.expanded {
@@ -220,4 +310,44 @@
 
 .container main .section1 .info-box .main-info .collapsing-info .collapsed-info.show {
     display: flex;
+}
+
+
+
+
+p {
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 15px;
+    color: #484E25;
+    
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #484E25;
+    /* Dark green for brand consistency */
+}
+
+h3 {
+    font-size: 1em;
+    margin-bottom: 12px;
+    color: #7f4f24;
+}
+
+
+/* Span Styles */
+span {
+    color: #484E25;
+    /* Same as header for a cohesive feel */
+    font-weight: bold;
+}
+
+span.highlight {
+    background-color: #BEC9BD;
+    /* Light green-grey for background */
+    padding: 2px 5px;
+    border-radius: 3px;
 }
